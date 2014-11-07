@@ -25,6 +25,33 @@ public class Task {
 	public void setTask(String t){
 		task = t;
 	}
-	
+	public void setCompleted(boolean c){
+		isCompleted = c;
+	}
+	//Accessors
+	public int getId(){
+		return taskId;
+	}
+	public boolean getPriority(){
+		return priority;
+	}
+	public String getDate(){
+		return date;
+	}
+	public String getTaskDetails(){
+		return task;
+	}
+	public boolean getCompleted(){
+		return isCompleted;
+	}
+	// Provides a String of the Class
+	public String toString(){
+		String result = "";
+		if (priority){
+			result +="Priority:";
+		}
+		result += task + " " + date;
+		return result;
+	}
 
 }
