@@ -8,11 +8,17 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class EditTaskActivity extends Activity {
-
+	private ToDoList toDoList;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_task);
+		toDoList = new ToDoList(this);
+		// Get Order information from the PurchaseActivity
+		Intent intent = getIntent();
+		int taskId = intent.getIntExtra("com.example.Arnoldtodolist.taskId",0);
+		if (taskId !=0){
+			populateTaskData(taskId);		}
 	}
 
 	@Override
