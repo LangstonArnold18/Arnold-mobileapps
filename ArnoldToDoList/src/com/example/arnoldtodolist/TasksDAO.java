@@ -50,7 +50,7 @@ public class TasksDAO {
 		long insertId = database.insert(TasksSQLiteHelper.TABLE_TASKS,null, values);
 		
 		Cursor cursor = database.query(TasksSQLiteHelper.TABLE_TASKS, allColumns, 
-										TasksSQLiteHelper.COLUMN_ID + "=" + insertId,  null, null, null, null);
+										TasksSQLiteHelper.COLUMN_ID + " = " + insertId,  null, null, null, null);
 		cursor.moveToLast();
 		Task newTask = cursorToTask(cursor);
 		cursor.close();
@@ -60,7 +60,7 @@ public class TasksDAO {
 		public void deleteTask(Task t){
 			int id = t.getId();
 			database.delete(TasksSQLiteHelper.TABLE_TASKS,
-					TasksSQLiteHelper.COLUMN_ID + "=" + id, null);
+					TasksSQLiteHelper.COLUMN_ID + " = " + id, null);
 		}
 		public void editTask(Task t){
 			ContentValues values = new ContentValues();
@@ -79,7 +79,7 @@ public class TasksDAO {
 			values.put(TasksSQLiteHelper.COLUMN_TASK,t.getTaskDetails());
 			values.put(TasksSQLiteHelper.COLUMN_COMPLETED,done);
 			
-			database.update(TasksSQLiteHelper.TABLE_TASKS, values, TasksSQLiteHelper.COLUMN_ID + "=" + id, null);		}
+			database.update(TasksSQLiteHelper.TABLE_TASKS, values, TasksSQLiteHelper.COLUMN_ID + " = " + id, null);		}
 		public List<Task>getAllTasks(){
 			List <Task>taskList = new ArrayList<Task>(0);
 			Cursor cursor = database.query(TasksSQLiteHelper.TABLE_TASKS, allColumns,null,null,null, null,null);
@@ -109,8 +109,8 @@ public class TasksDAO {
 		
 		public Task getTaskById(int id){
 			//Create a cursor
-			Cursor cursor = database.query(TasksSQLiteHelper.TABLE_TASKS,allColumns,
-					TasksSQLiteHelper.COLUMN_ID + "=" + id,null,null,null,null);
+			Cursor cursor = database.query(TasksSQLiteHelper.TABLE_TASKS, allColumns,
+					TasksSQLiteHelper.COLUMN_ID + " = " + id, null, null, null, null);
 			return (cursor.moveToFirst()) ? cursorToTask(cursor): null;
 		}
 		

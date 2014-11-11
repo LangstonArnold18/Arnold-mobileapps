@@ -18,13 +18,13 @@ public class TasksSQLiteHelper extends SQLiteOpenHelper {
 	
 	// Database creation SQL statement
 	private static final String DATABASE_CREATE =
-			"create table"
-			+ TABLE_TASKS + "("
+			"create table "
+			+ TABLE_TASKS + ""
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_PRIORITY + "integer not null,"
-			+ COLUMN_DATE + "text not null,"
-			+ COLUMN_TASK + "text not null,"
-			+ COLUMN_COMPLETED + "integer not null);";
+			+ COLUMN_PRIORITY + " integer not null, "
+			+ COLUMN_DATE + " text not null, "
+			+ COLUMN_TASK + " text not null, "
+			+ COLUMN_COMPLETED + " integer not null); ";
 	// Constructor
 	public TasksSQLiteHelper(Context context){
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

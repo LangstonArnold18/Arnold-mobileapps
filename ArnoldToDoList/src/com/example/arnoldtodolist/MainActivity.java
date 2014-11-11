@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
 
 	protected void goToEditTask(int id) {
 		Intent editTask = new Intent(this,EditTaskActivity.class);
-		editTask.putExtra("com.example.lastnametodolist.taskId",id);
+		editTask.putExtra("com.example.arnoldtodolist.taskId",id);
 		startActivity(editTask);
 	}
     

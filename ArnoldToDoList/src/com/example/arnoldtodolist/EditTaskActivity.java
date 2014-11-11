@@ -19,7 +19,7 @@ public class EditTaskActivity extends Activity {
 		toDoList = new ToDoList(this);
 		// Get Order information from the PurchaseActivity
 		Intent intent = getIntent();
-		int taskId = intent.getIntExtra("com.example.Arnoldtodolist.taskId",0);
+		int taskId = intent.getIntExtra("com.example.arnoldtodolist.taskId",0);
 		if (taskId !=0){
 			populateTaskData(taskId);		}
 	}
